@@ -9,5 +9,8 @@ typedef struct Bitmap {
     int32_t height;
 } Bitmap;
 
+int AllocateBitmap(Bitmap *bitmap, int32_t width, int32_t height);
+
+void FreeBitmap(Bitmap *bitmap);
 
 #endif
