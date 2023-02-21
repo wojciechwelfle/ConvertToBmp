@@ -20,3 +20,22 @@ int AllocateBitmap(Bitmap *bitmap, int32_t width, int32_t height) {
     return 0;
 }
 
+void FreeBitmap(Bitmap *bitmap) {
+    if (bitmap == NULL) return;
+    for (int i = 0; i < bitmap->height; ++i) {
+        for (int j = 0; j < bitmap->width; ++j) {
+            if (*(*(bitmap->ptr + i) + j) != NULL) {
+                free(*(*(bitmap->ptr + i) + j));
+                *(*(bitmap->ptr + i) + j) = NULL;
+            }
+        }
+        if (*(bitmap->ptr + i) != NULL) {
+            free(*(bitmap->ptr + i));
+            *(bitmap->ptr + i) = NULL;
+        }
+    }
+    if (bitmap->ptr != NULL) {
+        free(bitmap->ptr);
+        bitmap->ptr = NULL;
+    }
+}
