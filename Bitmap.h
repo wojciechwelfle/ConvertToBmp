@@ -20,4 +20,6 @@ void FreeBitmap(Bitmap *bitmap);
 
 void GenerateRandomColors(Bitmap *bitmap, enum type);
 
+void NegativeBitmap(Bitmap *bitmap);
+
 #endif
