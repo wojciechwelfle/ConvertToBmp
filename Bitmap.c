@@ -39,3 +39,25 @@ void FreeBitmap(Bitmap *bitmap) {
         bitmap->ptr = NULL;
     }
 }
+
+int Random() {
+    return rand() % 256;
+}
+
+void GenerateRandomColors(Bitmap *bitmap, enum type enumType) {
+    if (bitmap == NULL) return;
+    for (int i = 0; i < bitmap->height; ++i) {
+        for (int j = 0; j < bitmap->width; ++j) {
+            if (enumType == RGB) {
+                for (int k = 0; k < 3; ++k) {
+                    *(*(*(bitmap->ptr + i) + j) + k) = Random();
+                }
+            } else if (enumType == MONOCHROME) {
+                int random = Random();
+                for (int k = 0; k < 3; ++k) {
+                    *(*(*(bitmap->ptr + i) + j) + k) = random;
+                }
+            }
+        }
+    }
+}
