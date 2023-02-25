@@ -4,4 +4,4 @@ project(ConvertToBmp C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(ConvertToBmp
-        main.c StructureBMP.h StructureBMP.c Bitmap.h Bitmap.c)
+        main.c StructureBMP.h StructureBMP.c Bitmap.h Bitmap.c PortableAnymap.c PortableAnymap.h)
