@@ -69,3 +69,16 @@ void NegativeBitmap(Bitmap *bitmap) {
             for (int k = 0; k < COLORS_RGB; ++k)
                 *(*(*(bitmap->ptr + i) + j) + k) = 255 - *(*(*(bitmap->ptr + i) + j) + k);
 }
+
+void BinaryConversionBitmap(Bitmap *bitmap) {
+    if (bitmap == NULL || bitmap->height < 1 || bitmap->width < 1) return;
+    for (int i = 0; i < bitmap->height; ++i) {
+        for (int j = 0; j < bitmap->width; j++) {
+            for (int k = 0; k < COLORS_RGB; ++k) {
+                uint8_t *ptr = (*(*(bitmap->ptr + i) + j) + k);
+                if (*ptr > 100) *ptr = 255;
+                else *ptr = 0;
+            }
+        }
+    }
+}

@@ -22,4 +22,6 @@ void GenerateRandomColors(Bitmap *bitmap, enum type);
 
 void NegativeBitmap(Bitmap *bitmap);
 
+void BinaryConversionBitmap(Bitmap *bitmap);
+
 #endif
